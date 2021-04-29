@@ -11,8 +11,16 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - name: Create image
+      - name: Create test image
         run: |
             docker buildx build -t wachii/ubuntu-qt:test - < Dockerfile-test
             docker login -u ${{ secrets.DOCKERUSERNAME }} -p ${{ secrets.DOCKERPASS }}
             docker push wachii/ubuntu-qt:test
+        if: ${{ false }}
+
+      - name: Create image ubuntu 21.04
+        run: |
+            docker buildx build -t wachii/ubuntu-qt:21.04 - < Dockerfile
+            docker login -u ${{ secrets.DOCKERUSERNAME }} -p ${{ secrets.DOCKERPASS }}
+            docker push wachii/ubuntu-qt:21.04
+  
