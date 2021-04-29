@@ -5,8 +5,9 @@ RUN export DEBIAN_FRONTEND=noninteractive && \
     install tzdata keyboard-configuration && \
     apt-get -y --allow-unauthenticated --no-install-recommends \
     install sudo subversion ca-certificates less lsb-release software-properties-common && \
-    add-apt-repository -y ppa:git-core/ppa && apt-get update && apt-get install -y git && \
+    add-apt-repository -y ppa:git-core/ppa && \
     apt-get -y --allow-unauthenticated --no-install-recommends \
+    git \
     zlib1g-dev fakeroot build-essential devscripts debhelper g++ \
     libqt4-dev libqtwebkit-dev \
     && apt clean && rm -rf /var/lib/apt/lists/*
