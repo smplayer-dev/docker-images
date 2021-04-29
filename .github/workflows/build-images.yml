@@ -10,7 +10,7 @@ jobs:
       fail-fast: false
       matrix:
         config:
-          - { name: 'test', tag: 'test', qt: 5 }
+          #- { name: 'test', tag: 'test', qt: 5 }
           - { name: 'hirsute', tag: '21.04', qt: 5 }
 
     runs-on: ubuntu-latest
