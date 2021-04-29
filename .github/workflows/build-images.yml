@@ -8,8 +8,9 @@ jobs:
       fail-fast: false
       matrix:
         config:
-          - { name: 'test', tag: 'test', repo: 'wachii/ubuntu-qt', qt: 5 }
-          - { name: 'hirsute', tag: '21.04', repo: 'wachii/ubuntu-qt', qt: 5 }
+          #- { name: 'test', tag: 'test', repo: 'wachii/ubuntu-qt', qt: 5 }
+          - { name: 'ubuntu-21.04', tag: '21.04', repo: 'wachii/ubuntu-qt', qt: 5 }
+          - { name: 'ubuntu-16.04', tag: '16.04', repo: 'wachii/ubuntu-qt', qt: 4 }
           - { name: 'debian-10.9', tag: '10.9', repo: 'wachii/debian-qt', qt: 5 }
 
     runs-on: ubuntu-latest
@@ -18,7 +19,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
  
-      - name: Create image ${{ matrix.config.tag }}
+      - name: Create image ${{ matrix.config.name }}
         run:  docker buildx build -t ${{ matrix.config.repo }}:${{ matrix.config.tag }} - < Dockerfile-${{ matrix.config.name }}
         
       - name: Login
