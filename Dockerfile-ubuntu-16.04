@@ -1,13 +1,12 @@
 FROM ubuntu:16.04
-RUN export DEBIAN_FRONTEND=noninteractive && \
-    apt-get -y --allow-insecure-repositories update && \
-    apt-get -y --allow-unauthenticated --no-install-recommends \
-    install tzdata keyboard-configuration && \
-    apt-get -y --allow-unauthenticated --no-install-recommends \
-    install sudo subversion ca-certificates less lsb-release software-properties-common && \
-    add-apt-repository -y ppa:git-core/ppa && \
-    apt-get -y --allow-unauthenticated --no-install-recommends \
-    git \
+RUN export DEBIAN_FRONTEND=noninteractive
+RUN apt-get -y update && \
+    apt-get -y --no-install-recommends \
+    install tzdata keyboard-configuration
+RUN apt-get -y --no-install-recommends \
+    install sudo subversion ca-certificates less lsb-release software-properties-common
+RUN add-apt-repository -y ppa:git-core/ppa && apt-get -y git
+RUN apt-get -y --no-install-recommends \
     zlib1g-dev fakeroot build-essential devscripts debhelper g++ \
-    libqt4-dev libqtwebkit-dev \
-    && apt clean && rm -rf /var/lib/apt/lists/*
+    libqt4-dev libqtwebkit-dev
+RUN apt clean && rm -rf /var/lib/apt/lists/*
