@@ -4,7 +4,7 @@ RUN export DEBIAN_FRONTEND=noninteractive && \
     apt-get -y --allow-unauthenticated --no-install-recommends \
     install tzdata keyboard-configuration && \
     apt-get -y --allow-unauthenticated --no-install-recommends \
-    install sudo subversion ca-certificates less lsb-release &&
+    install sudo subversion ca-certificates less lsb-release && \
     add-apt-repository -y ppa:git-core/ppa && apt-get update && apt-get install -y git &&
     apt-get -y --allow-unauthenticated --no-install-recommends \
     zlib1g-dev fakeroot build-essential devscripts debhelper g++ \
