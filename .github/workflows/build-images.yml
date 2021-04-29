@@ -1,0 +1,30 @@
+name: Build Images
+env:
+  repo: 'wachii/ubuntu-qt'
+
+on: [workflow_dispatch]
+
+jobs:
+  build:
+    strategy:
+      fail-fast: false
+      matrix:
+        config:
+          - { name: 'test', tag: 'test', qt: 5 }
+          - { name: 'hirsute', tag: '21.04', qt: 5 }
+
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+ 
+      - name: Create image ${{ matrix.config.tag }}
+        run:  docker buildx build -t ${{ env.repo }}:${{ matrix.config.tag }} - < Dockerfile-${{ matrix.config.name }}
+        
+      - name: Login
+        run: docker login -u ${{ secrets.DOCKERUSERNAME }} -p ${{ secrets.DOCKERPASS }}
+        
+      - name: Push imagge
+        run: docker push ${{ env.repo }}:${{ matrix.config.tag }} 
+  
