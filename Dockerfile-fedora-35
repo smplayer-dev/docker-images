@@ -1,4 +1,5 @@
 FROM fedora:35
-RUN yum -y install redhat-lsb-core git svn desktop-file-utils \
-    wget nano rpm-build \
-    qt5-qtbase-devel qt5-qtwebkit-devel qt5-linguist
+RUN yum -y install redhat-lsb-core git subversion \
+    desktop-file-utils wget nano rpm-build \
+    qt5-qtbase-devel qt5-qtwebkit-devel qt5-linguist \
+    qt5-qttools-devel
