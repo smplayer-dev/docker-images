@@ -1,0 +1,5 @@
+FROM opensuse/leap:15.3
+RUN zypper -n install lsb-release git subversion \
+    desktop-file-utils wget nano rpm-build \
+    libqt5-qtbase-devel libQt5WebKitWidgets-devel libqt5-linguist \
+    libqt5-qtbase-private-headers-devel zlib-devel
