@@ -9,5 +9,4 @@ RUN export DEBIAN_FRONTEND=noninteractive && \
     zlib1g-dev fakeroot build-essential devscripts debhelper g++ && \
     add-apt-repository -y ppa:beineri/opt-qt-5.12.2-xenial && apt-get -y update && \
     apt-get -y install qt512-meta-full && \
-    source /opt/qt512/bin/qt512-env.sh && \
     apt clean && rm -rf /var/lib/apt/lists/*
