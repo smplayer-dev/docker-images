@@ -6,8 +6,9 @@ RUN export DEBIAN_FRONTEND=noninteractive && \
     add-apt-repository -y ppa:git-core/ppa && apt-get -y update && \
     apt-get -y install git wget nano && \
     apt-get -y --no-install-recommends install \
-    linux-image-4.15.0-1113-azure linux-modules-extra-4.15.0-1113-azure linux-tools-4.15.0-1113-azure kmod \
-    zlib1g-dev fakeroot build-essential devscripts debhelper g++ && \
+    linux-image-4.4.0-21-generic linux-image-extra-4.4.0-21-generic linux-image-generic kmod fuse gvfs-fuse \
+    zlib1g-dev fakeroot build-essential devscripts debhelper g++ \
+    libxcb-xinerama0 libgl1-mesa-dev && \
     add-apt-repository -y ppa:beineri/opt-qt-5.12.2-xenial && apt-get -y update && \
     apt-get -y install qt512-meta-full && \
     apt-get -y remove qt512doc && \
