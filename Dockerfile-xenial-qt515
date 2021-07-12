@@ -9,6 +9,5 @@ RUN export DEBIAN_FRONTEND=noninteractive && \
     zlib1g-dev fakeroot build-essential devscripts debhelper g++ \
     libxcb-xinerama0 libgl1-mesa-dev && \
     add-apt-repository -y ppa:beineri/opt-qt-5.15.2-xenial && apt-get -y update && \
-    apt-get -y install qt515* && \
-    apt-get -y remove qt515doc && \
+    apt-get -y install qt515base qt515translations qt515wayland qt515websockets qt515x11extras && \
     apt clean && rm -rf /var/lib/apt/lists/*
