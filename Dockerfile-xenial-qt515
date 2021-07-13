@@ -18,3 +18,5 @@ ENV QT_BASE_DIR=/opt/qt515
 ENV LD_LIBRARY_PATH=/opt/qt515/lib/x86_64-linux-gnu:/opt/qt515/lib:
 ENV PKG_CONFIG_PATH=/opt/qt515/lib/pkgconfig
 ENV PATH=/opt/qt515/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+WORKDIR /home/
+ENV HOME=/home/

@@ -12,3 +12,12 @@ RUN export DEBIAN_FRONTEND=noninteractive && \
     apt-get -y install qt512-meta-full && \
     apt-get -y remove qt512doc && \
     apt clean && rm -rf /var/lib/apt/lists/*
+RUN wget https://github.com/probonopd/linuxdeployqt/releases/download/continuous/linuxdeployqt-continuous-x86_64.AppImage \
+         -O /usr/local/bin/linuxdeployqt && chmod 755 /usr/local/bin/linuxdeployqt
+ENV QTDIR=/opt/qt512
+ENV QT_BASE_DIR=/opt/qt512
+ENV LD_LIBRARY_PATH=/opt/qt512/lib/x86_64-linux-gnu:/opt/qt512/lib:
+ENV PKG_CONFIG_PATH=/opt/qt512/lib/pkgconfig
+ENV PATH=/opt/qt512/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+WORKDIR /home/
+ENV HOME=/home/
