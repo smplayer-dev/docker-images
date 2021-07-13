@@ -11,3 +11,10 @@ RUN export DEBIAN_FRONTEND=noninteractive && \
     add-apt-repository -y ppa:beineri/opt-qt-5.15.2-xenial && apt-get -y update && \
     apt-get -y install qt515base qt515tools qt515translations qt515wayland qt515websockets qt515x11extras && \
     apt clean && rm -rf /var/lib/apt/lists/*
+RUN wget https://github.com/probonopd/linuxdeployqt/releases/download/continuous/linuxdeployqt-continuous-x86_64.AppImage \
+         -O /usr/local/bin/linuxdeployqt && chmod 755 /usr/local/bin/linuxdeployqt
+ENV QTDIR=/opt/qt515
+ENV QT_BASE_DIR=/opt/qt515
+ENV LD_LIBRARY_PATH=/opt/qt515/lib/x86_64-linux-gnu:/opt/qt515/lib:
+ENV PKG_CONFIG_PATH=/opt/qt515/lib/pkgconfig
+ENV PATH=/opt/qt515/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
