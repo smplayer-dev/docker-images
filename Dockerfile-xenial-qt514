@@ -1,0 +1,11 @@
+FROM a12e/docker-qt:5.14-gcc_64
+USER root
+ENV QTDIR=/opt/qt/5.14.0/gcc_64
+
+# Install QtWebKit
+RUN apt-get -y update && \
+    apt-get -y install software-properties-common p7zip libxslt1.1 libxcomposite-dev libcups2 && \
+    wget https://github.com/qtwebkit/qtwebkit/releases/download/qtwebkit-5.212.0-alpha4/qtwebkit-Linux-RHEL_7_6-GCC-Linux-RHEL_7_6-X86_64.7z && \
+    7zr x qtwebkit-Linux-RHEL_7_6-GCC-Linux-RHEL_7_6-X86_64.7z -o$QTDIR && \
+    rm qtwebkit-Linux-RHEL_7_6-GCC-Linux-RHEL_7_6-X86_64.7z && \
+    apt clean && sudo rm -rf /var/lib/apt/lists/*
