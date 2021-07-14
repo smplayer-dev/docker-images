@@ -12,8 +12,9 @@ jobs:
           #- { name: 'ubuntu-21.04', tag: '21.04', repo: 'wachii/ubuntu-qt', qt: 5 }
           #- { name: 'ubuntu-16.04', tag: '16.04', repo: 'wachii/ubuntu-qt', qt: 4 }
           #- { name: 'ubuntu-16.04-qt5', tag: '16.04', repo: 'wachii/ubuntu-qt5', qt: 5 }
-          - { name: 'xenial-qt512', tag: '5.12', repo: 'wachii/xenial-qt', qt: 5 }
-          - { name: 'xenial-qt515', tag: '5.15.2', repo: 'wachii/xenial-qt', qt: 5 }
+          #- { name: 'xenial-qt512', tag: '5.12', repo: 'wachii/xenial-qt', qt: 5 }
+          #- { name: 'xenial-qt515', tag: '5.15.2', repo: 'wachii/xenial-qt', qt: 5 }
+          - { name: 'xenial-qt514', tag: '5.14.0', repo: 'wachii/xenial-qt', qt: 5 }
           #- { name: 'debian-10.9', tag: '10.9', repo: 'wachii/debian-qt', qt: 5 }
           #- { name: 'fedora-35', tag: '35', repo: 'wachii/fedora-qt', qt: 5 }
           #- { name: 'opensuse-15.3', tag: '15.3', repo: 'wachii/opensuse-qt', qt: 5 }
