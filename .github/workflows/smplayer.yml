@@ -11,7 +11,7 @@ jobs:
         uses: actions/checkout@v2
  
       - name: Create image
-        run:  docker buildx build -t smplayer -f Dockerfile-smplayer .
+        run:  docker buildx build -t wachii/smplayer -f Dockerfile-smplayer .
         
       - name: Login
         run: docker login -u ${{ secrets.DOCKERUSERNAME }} -p ${{ secrets.DOCKERPASS }}
