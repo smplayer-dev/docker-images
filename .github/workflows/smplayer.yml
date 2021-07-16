@@ -1,0 +1,20 @@
+name: Build SMPlayer
+
+on: [workflow_dispatch]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+ 
+      - name: Create image
+        run:  docker buildx build -t smplayer -f Dockerfile-smplayer .
+        
+      - name: Login
+        run: docker login -u ${{ secrets.DOCKERUSERNAME }} -p ${{ secrets.DOCKERPASS }}
+        
+      - name: Push image
+        run: docker push wachii/smplayer
