@@ -1,0 +1,32 @@
+FROM ubuntu:20.04
+RUN export DEBIAN_FRONTEND=noninteractive && \
+    apt-get -y --allow-insecure-repositories update && \
+    apt-get -y --allow-unauthenticated --no-install-recommends \
+    install tzdata keyboard-configuration && \
+    apt-get -y --allow-unauthenticated --no-install-recommends \
+    install sudo subversion git less lsb-release \
+    zlib1g-dev fakeroot build-essential devscripts debhelper g++ \
+    qtbase5-dev qt5-qmake qtscript5-dev qttools5-dev-tools qtbase5-private-dev libqt5webkit5-dev \
+    && apt clean && rm -rf /var/lib/apt/lists/*
+RUN ln -s /usr/bin/python3 /usr/local/bin/python
+RUN apt-get update && apt-get -y install dbus wget locales && \
+    locale-gen en_US.UTF-8 && dpkg-reconfigure locales && \
+    groupadd -r user && useradd --create-home --gid user user && echo 'user ALL=NOPASSWD: ALL' > /etc/sudoers.d/user && \
+    dbus-uuidgen > /etc/machine-id
+
+RUN wget https://github.com/smplayer-dev/mpv-mod/releases/download/v0.33.1-52/mpv_0.33.1-1.focal_amd64.deb && \
+    wget https://github.com/smplayer-dev/mplayer-mod/releases/download/v1.4-71/mplayer_1.4-1.focal_amd64.deb && \
+    apt-get -y install ./*.deb --no-install-recommends && \
+    rm *.deb
+
+RUN wget https://github.com/smplayer-dev/smplayer/releases/download/v21.1.0.9805/smplayer_21.1.0.9805-1.ubuntu-focal_amd64.deb && \
+    apt-get -y install ./*.deb --no-install-recommends && \
+    rm *.deb
+
+RUN apt clean && rm -rf /var/lib/apt/lists/*
+
+USER user
+WORKDIR /home/user
+ENV HOME /home/user
+ENV QT_X11_NO_MITSHM=1
+CMD /usr/bin/smplayer
