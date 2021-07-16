@@ -19,10 +19,12 @@ RUN wget https://github.com/smplayer-dev/mpv-mod/releases/download/v0.33.1-52/mp
     apt-get -y install ./*.deb --no-install-recommends && \
     rm *.deb
 
-RUN wget https://github.com/smplayer-dev/smplayer/releases/download/v21.1.0.9805/smplayer_21.1.0.9805-1.ubuntu-focal_amd64.deb && \
+RUN wget https://github.com/smplayer-dev/smplayer-build/releases/download/v21.1.0.9821/smplayer-with-smtube_21.1.0.9821-1.ubuntu-focal_amd64.deb && \
     apt-get -y install ./*.deb --no-install-recommends && \
     rm *.deb
 
+RUN apt-get -y install pulseaudio-utils
+COPY pulse-client.conf /etc/pulse/client.conf
 RUN apt clean && rm -rf /var/lib/apt/lists/*
 
 USER user
