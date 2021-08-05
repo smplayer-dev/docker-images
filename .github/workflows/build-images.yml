@@ -14,9 +14,10 @@ jobs:
           #- { name: 'ubuntu-16.04-qt5', tag: '16.04', repo: 'wachii/ubuntu-qt5', qt: 5 }
           #- { name: 'xenial-qt512', tag: '5.12', repo: 'wachii/xenial-qt', qt: 5 }
           #- { name: 'xenial-qt515', tag: '5.15.2', repo: 'wachii/xenial-qt', qt: 5 }
-          - { name: 'xenial-qt514', tag: '5.14.0', repo: 'wachii/xenial-qt', qt: 5 }
+          #- { name: 'xenial-qt514', tag: '5.14.0', repo: 'wachii/xenial-qt', qt: 5 }
           #- { name: 'debian-10.9', tag: '10.9', repo: 'wachii/debian-qt', qt: 5 }
           #- { name: 'fedora-35', tag: '35', repo: 'wachii/fedora-qt', qt: 5 }
+          - { name: 'fedora-34', tag: '34', repo: 'wachii/fedora-qt', qt: 5 }
           #- { name: 'opensuse-15.3', tag: '15.3', repo: 'wachii/opensuse-qt', qt: 5 }
 
     runs-on: ubuntu-latest
@@ -26,7 +27,7 @@ jobs:
         uses: actions/checkout@v2
  
       - name: Create image ${{ matrix.config.name }}
-        run:  docker buildx build -t ${{ matrix.config.repo }}:${{ matrix.config.tag }} - < Dockerfile-${{ matrix.config.name }}
+        run:  docker buildx build -t ${{ matrix.config.repo }}:${{ matrix.config.tag }} -f Dockerfile-${{ matrix.config.name }} .
         
       - name: Login
         run: docker login -u ${{ secrets.DOCKERUSERNAME }} -p ${{ secrets.DOCKERPASS }}
