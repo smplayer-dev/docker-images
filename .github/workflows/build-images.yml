@@ -17,8 +17,9 @@ jobs:
           #- { name: 'xenial-qt514', tag: '5.14.0', repo: 'wachii/xenial-qt', qt: 5 }
           #- { name: 'debian-10.9', tag: '10.9', repo: 'wachii/debian-qt', qt: 5 }
           #- { name: 'fedora-35', tag: '35', repo: 'wachii/fedora-qt', qt: 5 }
-          - { name: 'fedora-34', tag: '34', repo: 'wachii/fedora-qt', qt: 5 }
+          #- { name: 'fedora-34', tag: '34', repo: 'wachii/fedora-qt', qt: 5 }
           #- { name: 'opensuse-15.3', tag: '15.3', repo: 'wachii/opensuse-qt', qt: 5 }
+          - { name: 'archlinux', tag: 'devel', repo: 'wachii/archlinux', qt: 5 }
 
     runs-on: ubuntu-latest
     
