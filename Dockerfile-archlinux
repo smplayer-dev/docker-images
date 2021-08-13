@@ -1,0 +1,8 @@
+FROM archlinux:base-devel
+
+RUN pacman -Sy binutils fakeroot sudo wget git nano --noconfirm --needed
+RUN useradd user && mkdir /home/user && chown -R user:user /home/user
+RUN echo 'user ALL=NOPASSWD: ALL' >> /etc/sudoers
+USER user
+WORKDIR /home/user
+ENV HOME /home/user
