@@ -21,7 +21,8 @@ jobs:
           #- { name: 'opensuse-15.3', tag: '15.3', repo: 'wachii/opensuse-qt' }
           #- { name: 'archlinux', tag: 'devel', repo: 'wachii/archlinux' }
           #- { name: 'flatpak-5.12', tag: '5.12', repo: 'wachii/flatpak-kde' }
-          - { name: 'fedora-flatpak-base', tag: 'base', repo: 'wachii/fedora-flatpak' }
+          #- { name: 'fedora-flatpak-base', tag: 'base', repo: 'wachii/fedora-flatpak' }
+          - { name: 'fedora-flatpak-kde5.12', tag: 'kde:5.12', repo: 'wachii/fedora-flatpak' }
 
     runs-on: ubuntu-latest
     
