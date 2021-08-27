@@ -1,0 +1,2 @@
+FROM wachii/fedora-flatpak:base
+RUN flatpak install -y --noninteractive flathub org.kde.Platform/x86_64/5.15 org.kde.Sdk/x86_64/5.15 io.qt.qtwebkit.BaseApp/x86_64/5.15
