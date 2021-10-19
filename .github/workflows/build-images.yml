@@ -23,7 +23,8 @@ jobs:
           #- { name: 'flatpak-5.12', tag: '5.12', repo: 'wachii/flatpak-kde' }
           #- { name: 'fedora-flatpak-base', tag: 'base', repo: 'wachii/fedora-flatpak' }
           #- { name: 'fedora-flatpak-kde5.12', tag: '5.12', repo: 'wachii/fedora-flatpak-kde' }
-          - { name: 'fedora-flatpak-kde5.15', tag: '5.15', repo: 'wachii/fedora-flatpak-kde' }
+          #- { name: 'fedora-flatpak-kde5.15', tag: '5.15', repo: 'wachii/fedora-flatpak-kde' }
+          - { name: 'ubuntu-18.04-x86', tag: '18.04', repo: 'wachii/ubuntu-i386-qt' }
 
     runs-on: ubuntu-latest
     
