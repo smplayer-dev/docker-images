@@ -2,7 +2,7 @@ FROM i386/ubuntu:18.04
 RUN export DEBIAN_FRONTEND=noninteractive && \
     apt-get -y --allow-insecure-repositories update && \
     apt-get -y --allow-unauthenticated --no-install-recommends \
-    install tzdata keyboard-configuration && \
+    install tzdata keyboard-configuration ca-certificates && \
     apt-get -y --allow-unauthenticated --no-install-recommends \
     install sudo subversion git less lsb-release \
     zlib1g-dev fakeroot build-essential devscripts debhelper g++ \
