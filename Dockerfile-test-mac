@@ -1,0 +1,5 @@
+FROM mickjol/macos-catalina:code
+RUN export MACOSX_DEPLOYMENT_TARGET="10.13" && \
+    brew update && \
+    brew update-reset && \
+    path="$(brew --repository)/Library/Taps/homebrew/homebrew-core/Formula"
