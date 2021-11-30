@@ -25,9 +25,13 @@ jobs:
          docker-machine create --driver virtualbox default
          docker-machine env default
 
-      - name: Setup docker
+      - name: Install docker
         #uses: docker-practice/actions-setup-docker@master
-        run: brew install docker-machine docker
+        run: |
+            brew install docker docker-machine
+            docker-machine create --driver virtualbox default
+            docker-machine env default
+            eval "$(docker-machine env default)"
 
       - name: Create image ${{ matrix.config.name }}
         run:  docker buildx build -t ${{ matrix.config.repo }}:${{ matrix.config.tag }} -f Dockerfile-${{ matrix.config.name }} .
