@@ -1,0 +1,27 @@
+name: Test Mac
+
+on: [workflow_dispatch]
+
+jobs:
+  build:
+    strategy:
+      fail-fast: false
+      matrix:
+        config:
+          - { name: 'test-mac', tag: 'test', repo: 'wachii/test-mac' }
+
+    runs-on: macos-10.15
+    
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+ 
+      - name: Create image ${{ matrix.config.name }}
+        run:  docker buildx build -t ${{ matrix.config.repo }}:${{ matrix.config.tag }} -f Dockerfile-${{ matrix.config.name }} .
+        
+      #- name: Login
+      #  run: docker login -u ${{ secrets.DOCKERUSERNAME }} -p ${{ secrets.DOCKERPASS }}
+        
+      #- name: Push image
+      #  run: docker push ${{ matrix.config.repo }}:${{ matrix.config.tag }} 
+  
