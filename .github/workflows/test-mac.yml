@@ -26,7 +26,8 @@ jobs:
          docker-machine env default
 
       - name: Setup docker
-        uses: docker-practice/actions-setup-docker@master
+        #uses: docker-practice/actions-setup-docker@master
+        run: brew install docker-machine docker
 
       - name: Create image ${{ matrix.config.name }}
         run:  docker buildx build -t ${{ matrix.config.repo }}:${{ matrix.config.tag }} -f Dockerfile-${{ matrix.config.name }} .
