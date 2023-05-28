@@ -16,6 +16,7 @@ jobs:
           #- { name: 'xenial-qt515', tag: '5.15.2', repo: 'wachii/xenial-qt' }
           #- { name: 'xenial-qt514', tag: '5.14.0', repo: 'wachii/xenial-qt' }
           #- { name: 'debian-10.9', tag: '10.9', repo: 'wachii/debian-qt' }
+          - { name: 'debian-11.7', tag: '11.7', repo: 'wachii/debian-qt' }
           #- { name: 'fedora-35', tag: '35', repo: 'wachii/fedora-qt }
           #- { name: 'fedora-34', tag: '34', repo: 'wachii/fedora-qt' }
           #- { name: 'opensuse-15.3', tag: '15.3', repo: 'wachii/opensuse-qt' }
@@ -25,7 +26,7 @@ jobs:
           #- { name: 'fedora-flatpak-kde5.12', tag: '5.12', repo: 'wachii/fedora-flatpak-kde' }
           #- { name: 'fedora-flatpak-kde5.15', tag: '5.15', repo: 'wachii/fedora-flatpak-kde' }
           #- { name: 'ubuntu-18.04-x86', tag: '18.04', repo: 'wachii/ubuntu-i386-qt' }
-          - { name: 'ubuntu-18.04', tag: '18.04', repo: 'wachii/ubuntu-qt' }
+          #- { name: 'ubuntu-18.04', tag: '18.04', repo: 'wachii/ubuntu-qt' }
 
     runs-on: ubuntu-latest
     
